@@ -20,6 +20,12 @@ jobs:
           curl -sL https://rpm.nodesource.com/setup_18.x |sudo bash -
           sudo dnf install -y nodejs
 
+      - name: Setup npm authentication
+        run: |
+          echo "//localhost:8081/repository/npm-private/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:username=${{ secrets.NEXUS_USERNAME }}" >> ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:_password=${{ secrets.NEXUS_PASSWORD }}" >> ~/.npmrc
+
       - name: Install dependencies
         run: npm install
 
@@ -34,6 +40,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Setup npm authentication
+        run: |
+          echo "//localhost:8081/repository/npm-private/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:username=${{ secrets.NEXUS_USERNAME }}" >> ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:_password=${{ secrets.NEXUS_PASSWORD }}" >> ~/.npmrc
 
       - name: Install dependencies
         run: npm install
@@ -53,6 +65,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Setup npm authentication
+        run: |
+          echo "//localhost:8081/repository/npm-private/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:username=${{ secrets.NEXUS_USERNAME }}" >> ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:_password=${{ secrets.NEXUS_PASSWORD }}" >> ~/.npmrc
 
       - name: Install dependencies
         run: npm install
