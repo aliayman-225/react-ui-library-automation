@@ -25,6 +25,9 @@ jobs:
           echo "//localhost:8081/repository/npm-private/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           echo "//localhost:8081/repository/npm-private/:username=${{ secrets.NEXUS_USERNAME }}" >> ~/.npmrc
           echo "//localhost:8081/repository/npm-private/:_password=${{ secrets.NEXUS_PASSWORD }}" >> ~/.npmrc
+          echo "${{ secrets.NPM_TOKEN }}" 
+          echo "${{ secrets.NEXUS_USERNAME }}"
+
 
       - name: Install dependencies
         run: npm install
