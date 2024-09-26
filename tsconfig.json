@@ -9,7 +9,9 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist"
   },
-  "include": ["src/components/**/*"],
+  "include": ["src/components/**/*",
+              "src/components/jest-dom.d.ts",
+              "src/components/css-module.d.ts" ], // Add this line if necessary
   "exclude": ["node_modules"]
 }
 

@@ -1,4 +1,5 @@
 module.exports = {
+  setupFilesAfterEnv: ['./src/components/setupTests.ts'],
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   transform: {
