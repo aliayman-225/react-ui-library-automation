@@ -16,8 +16,9 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Name</label>
+        <label htmlFor="name">Name</label>
         <input
+          id="name"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -25,8 +26,9 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
         />
       </div>
       <div>
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
         <input
+          id="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
