@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         run: |
           curl -sL https://rpm.nodesource.com/setup_18.x | bash -
-          sudo yum install -y nodejs
+          sudo dnf install -y nodejs
 
       - name: Install dependencies
         run: npm install
