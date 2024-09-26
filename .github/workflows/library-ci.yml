@@ -22,7 +22,8 @@ jobs:
 
       - name: Setup npm authentication
         run: |
-	  echo "//localhost:8081/repository/npm-private/:_authToken=32bc3152-8637-3e67-9a03-09dcee450871" >> ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:_authToken=32bc3152-8637-3e67-9a03-09dcee450871" >> ~/.npmrc
+
 
 
 
@@ -66,7 +67,8 @@ jobs:
 
       - name: Setup npm authentication
         run: |
-          echo "//localhost:8081/repository/npm-private/:_authToken=32bc3152-8637-3e67-9a03-09dcee450871" >> ~/.npmrc
+          echo "//localhost:8081/repository/npm-private/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
 
       - name: Install dependencies
         run: npm install
