@@ -1,24 +1,23 @@
-FROM node:18-alpine AS build
+# Use the appropriate base image
+FROM node:18.6.0-alpine
 
+# Set the working directory
 WORKDIR /app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-RUN rm -rf node_modules package-lock.json
+# Clear npm cache and install dependencies
+RUN npm cache clean --force && \
+    npm install -g npm@latest && \
+    npm install
 
-RUN npm cache clean && npm --verbose install
-
+# Copy the rest of the application code
 COPY . .
 
+# Expose the appropriate port
+EXPOSE 3000
 
-
-RUN npm run build
-
-FROM nginx:alpine
-
-COPY --from=build /app/build /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Command to run your app
+CMD ["npm", "start"]
 
