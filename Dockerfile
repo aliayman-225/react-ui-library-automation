@@ -9,6 +9,8 @@ RUN npm cache clean --force && npm --verbose install
 
 COPY . .
 
+RUN rm -rf node_modules package-lock.json
+
 RUN npm run build
 
 FROM nginx:alpine
