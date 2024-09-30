@@ -63,18 +63,18 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t aliayman225/react-ui-library:${{ github.sha }} .
+          sudo docker build -t aliayman225/react-ui-library:${{ github.sha }} .
 
       - name: Log in to Docker Hub
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          echo "${{ secrets.DOCKER_PASSWORD }}" | sudo docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Tag Docker image
         run: |
-          docker tag aliayman225/react-ui-library:${{ github.sha }} aliayman225/react-ui-library:latest
+          sudo docker tag aliayman225/react-ui-library:${{ github.sha }} aliayman225/react-ui-library:latest
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push aliayman225/react-ui-library:${{ github.sha }}
-          docker push aliayman225/react-ui-library:latest
+          sudo docker push aliayman225/react-ui-library:${{ github.sha }}
+          sudo docker push aliayman225/react-ui-library:latest
 
