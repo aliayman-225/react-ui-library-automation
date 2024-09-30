@@ -1,4 +1,4 @@
-FROM node:19.5.0-alpine AS build
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
@@ -6,9 +6,7 @@ COPY package*.json ./
 
 RUN rm -rf node_modules package-lock.json
 
-# Clean npm cache before install and remove --force flag
-
-RUN npm cache clean --force && npm --verbose install
+RUN npm cache clean && npm --verbose install
 
 COPY . .
 
