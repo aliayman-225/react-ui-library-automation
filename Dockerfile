@@ -7,6 +7,7 @@ COPY package*.json ./
 RUN rm -rf node_modules package-lock.json
 
 # Clean npm cache before install and remove --force flag
+
 RUN npm cache clean --force && npm --verbose install
 
 COPY . .
